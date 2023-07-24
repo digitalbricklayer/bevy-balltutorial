@@ -6,3 +6,5 @@ Assets used are taken from the following asset bundles:
 - Impact Sounds
 - Sci-Fi Sounds
 - Rolling Ball Assets
+
+The font was taken from the bevy engine assets folder.
