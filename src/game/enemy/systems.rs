@@ -50,9 +50,9 @@ pub fn enemy_movement(
 }
 
 pub fn update_enemy_direction(
+    mut commands: Commands,
     mut enemy_query: Query<(&Transform, &mut Enemy)>,
     window_query: Query<&Window, With<PrimaryWindow>>,
-    audio: Res<Audio>,
     asset_server: Res<AssetServer>,
 ) {
     let window = window_query.get_single().unwrap();
@@ -87,7 +87,13 @@ pub fn update_enemy_direction(
             } else {
                 sound_effect_2
             };
-            audio.play(sound_effect);
+            commands.spawn((
+                AudioBundle {
+                    source: sound_effect,
+                    settings: PlaybackSettings::ONCE,
+                },
+                SoundEffect,
+            ));
         }
     }
 }
