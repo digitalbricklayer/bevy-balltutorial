@@ -8,6 +8,7 @@ use systems::*;
 use bevy::prelude::*;
 use crate::game::GamePlugin;
 use crate::main_menu::MainMenuPlugin;
+use bevy_inspector_egui::quick::WorldInspectorPlugin;
 
 fn main() {
     App::new()
@@ -20,6 +21,7 @@ fn main() {
         .add_systems(Update,transition_to_main_menu_state)
         .add_systems(Update,exit_game)
         .add_systems(Update,handle_game_over)
+        .add_plugins(WorldInspectorPlugin::new())
         .run();
 }
 
